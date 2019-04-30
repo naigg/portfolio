@@ -1,12 +1,31 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
-    author: `Kyle Mathews`,
+    title: `Portfolio`,
+    author: `Gian Andres`,
     description: `A starter blog demonstrating what Gatsby can do.`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
-    social: {
-      twitter: `kylemathews`,
-    },
+    tools : [
+      {
+        name: 'HECS Calculator',
+        link: 'HECS-calculator',
+        description: 'Calculate your owing HECS debt'
+      },
+      {
+        name: 'Animated Loading Page',
+        link: 'animated-loading-page',
+        description: 'Have a look in a customised way for different data'
+      }
+    ],
+    userDescription: {
+      title: "About Me",
+      education: [
+        {
+          date: "2014-2017",
+          location: "University Of Sydney",
+          degree: "Bachelors of Computer Science"
+        }
+      ]
+    }
   },
   plugins: [
     {

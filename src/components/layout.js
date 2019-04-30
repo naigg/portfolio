@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 
+import Tools from "./tools"
 import { rhythm, scale } from "../utils/typography"
 
 class Layout extends React.Component {
@@ -11,44 +12,68 @@ class Layout extends React.Component {
 
     if (location.pathname === rootPath) {
       header = (
-        <h1
-          style={{
-            ...scale(1.5),
-            marginBottom: rhythm(1.5),
-            marginTop: 0,
-          }}
-        >
-          <Link
+        <>
+          <h1
             style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
+              ...scale(1.5),
+              display: 'flex',
+              marginBottom: rhythm(1.5),
+              marginTop: 0,
             }}
-            to={`/`}
           >
-            {title}
-          </Link>
-        </h1>
+            <Link
+              style={{
+                boxShadow: `none`,
+                textDecoration: `none`,
+                color: `inherit`,
+              }}
+              to={`/`}
+            >
+              {title}
+            </Link>
+          </h1>
+          <span style={{
+            ...scale(0.3),
+            display: 'flex',
+            marginBottom: rhythm(1.5),
+            marginTop: rhythm(1.2)
+          }}>
+            <Link 
+              style={{
+                  boxShadow: `none`,
+                  textDecoration: `none`,
+                  color: `inherit`,
+              }}
+              to={'/about-me'}>
+              About
+            </Link>
+          </span>
+          <Tools containerStyle={{marginTop: '2rem'}}/>
+        </>
       )
     } else {
       header = (
-        <h3
-          style={{
-            fontFamily: `Montserrat, sans-serif`,
-            marginTop: 0,
-          }}
-        >
-          <Link
+        <>
+          <h3
             style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
+              display: 'flex',
+              fontFamily: `Montserrat, sans-serif`,
+              marginTop: 0,
             }}
-            to={`/`}
           >
-            {title}
-          </Link>
-        </h3>
+            <Link
+              style={{
+                boxShadow: `none`,
+                textDecoration: `none`,
+                color: `inherit`,
+              }}
+              to={`/`}
+            >
+              {title}
+            </Link>
+          </h3>
+          <Tools />
+        </>
       )
     }
     return (
@@ -60,8 +85,17 @@ class Layout extends React.Component {
           padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
         }}
       >
-        <header>{header}</header>
-        <main>{children}</main>
+        <header style={{
+          display: 'flex',
+          justifyContent: 'space-between'
+        }}>
+          {header}
+        </header>
+        <main style={{
+          minHeight: 'calc(100vh - 250px)'
+        }}>
+          {children}
+        </main>
         <footer>
           © {new Date().getFullYear()}, Built with
           {` `}
